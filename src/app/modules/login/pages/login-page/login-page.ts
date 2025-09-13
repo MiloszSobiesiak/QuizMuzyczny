@@ -9,7 +9,7 @@ import { Component } from '@angular/core';
 export class LoginPage {
   public loginWithSpotify() {
     const clientId = '8dc7deb02262449cac03e0ba56ec38aa';
-    const redirectUri = 'https://quiz-muzyczny.vercel.app/home-page';
+    const redirectUri = 'https://d27946756601.ngrok-free.app/api/spotify/callback';
     const scopes =
       'playlist-read-private playlist-read-collaborative user-read-email user-read-private';
 
