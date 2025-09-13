@@ -1,3 +1,14 @@
 import { Routes } from '@angular/router';
+import { HOME_ROUTES } from './modules/home/pages/home.routes';
+import { LOGIN_ROUTES } from './modules/login/pages/login.routes';
+import { BaseLayoutPage } from './modules/base-layout/pages/base-layout-page/base-layout-page';
 
-export const routes: Routes = [];
+export const routes: Routes = [
+  ...LOGIN_ROUTES,
+  {
+    path: '',
+    component: BaseLayoutPage,
+    children: [...HOME_ROUTES],
+  },
+  { path: '**', redirectTo: '' },
+];
