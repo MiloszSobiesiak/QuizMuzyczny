@@ -15,6 +15,6 @@ export class LoginPage {
 
     window.location.href = `https://accounts.spotify.com/authorize?response_type=code&client_id=${clientId}&scope=${encodeURIComponent(
       scopes
-    )}&redirect_uri=${encodeURIComponent(redirectUri)}`;
+    )}&redirect_uri=${encodeURIComponent(redirectUri)}&show_dialog=true`;
   }
 }
