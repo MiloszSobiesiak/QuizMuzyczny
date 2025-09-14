@@ -8,7 +8,9 @@ export class SessionsRepository {
   private readonly apiUrl = 'https://empathetic-youth-production.up.railway.app/api';
 
   public isLoggedIn(): Observable<boolean> {
-    return this.http.get<boolean>(`${this.apiUrl}/sessions/is-logged-in`);
+    return this.http.get<boolean>(`${this.apiUrl}/sessions/is-logged-in`, {
+      withCredentials: true,
+    });
   }
 
   public logout(): Observable<void> {
