@@ -10,7 +10,7 @@ export class AuthGuard implements CanActivate {
   private readonly sessionsRepository = inject(SessionsRepository);
   private readonly router = inject(Router);
 
-  canActivate(): Observable<boolean> {
+  public canActivate(): Observable<boolean> {
     return this.sessionsRepository.isLoggedIn().pipe(
       map(() => true),
       catchError(() => {
