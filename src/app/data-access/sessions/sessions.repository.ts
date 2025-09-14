@@ -1,10 +1,12 @@
 import { HttpClient } from '@angular/common/http';
 import { inject, Injectable } from '@angular/core';
-import { Observable } from 'rxjs';
+import { Router } from '@angular/router';
+import { Observable, tap } from 'rxjs';
 
 @Injectable({ providedIn: 'root' })
 export class SessionsRepository {
   private readonly http = inject(HttpClient);
+  private readonly router = inject(Router);
   private readonly apiUrl = 'https://empathetic-youth-production.up.railway.app/api';
 
   public isLoggedIn(): Observable<boolean> {
@@ -14,6 +16,10 @@ export class SessionsRepository {
   }
 
   public logout(): Observable<void> {
-    return this.http.get<void>(`${this.apiUrl}/sessions/logout`);
+    return this.http
+      .get<void>(`${this.apiUrl}/sessions/logout`, {
+        withCredentials: true,
+      })
+      .pipe(tap(() => this.router.navigate(['/login'])));
   }
 }
