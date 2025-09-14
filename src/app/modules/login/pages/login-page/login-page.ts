@@ -9,7 +9,7 @@ import { Component } from '@angular/core';
 export class LoginPage {
   public loginWithSpotify() {
     const clientId = '8dc7deb02262449cac03e0ba56ec38aa';
-    const redirectUri = 'https://1b5109c5cc42.ngrok-free.app/api/spotify/callback';
+    const redirectUri = 'https://empathetic-youth-production.up.railway.app/api/spotify/callback';
     const scopes =
       'playlist-read-private playlist-read-collaborative user-read-email user-read-private';
 

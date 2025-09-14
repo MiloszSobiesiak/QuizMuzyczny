@@ -5,7 +5,7 @@ import { Observable } from 'rxjs';
 @Injectable({ providedIn: 'root' })
 export class SessionsRepository {
   private readonly http = inject(HttpClient);
-  private readonly apiUrl = 'https://1b5109c5cc42.ngrok-free.app/api';
+  private readonly apiUrl = 'https://empathetic-youth-production.up.railway.app/api';
 
   public isLoggedIn(): Observable<boolean> {
     return this.http.get<boolean>(`${this.apiUrl}/sessions/is-logged-in`);
