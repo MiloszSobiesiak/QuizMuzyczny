@@ -5,6 +5,7 @@ import { BaseLayoutPage } from './modules/base-layout/pages/base-layout-page/bas
 import { AuthGuard } from './shared/guards/auth.guard';
 
 export const routes: Routes = [
+  { path: '', redirectTo: '/login', pathMatch: 'full' },
   ...LOGIN_ROUTES,
   {
     path: '',
@@ -12,5 +13,5 @@ export const routes: Routes = [
     children: [...HOME_ROUTES],
     canActivate: [AuthGuard],
   },
-  { path: '', redirectTo: '/login', pathMatch: 'full' },
+  { path: '**', redirectTo: '/login' },
 ];
