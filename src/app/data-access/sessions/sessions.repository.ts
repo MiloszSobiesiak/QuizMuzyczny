@@ -17,9 +17,13 @@ export class SessionsRepository {
 
   public logout(): Observable<void> {
     return this.http
-      .post<void>(`${this.apiUrl}/sessions/logout`, {
-        withCredentials: true,
-      })
+      .post<void>(
+        `${this.apiUrl}/sessions/logout`,
+        {},
+        {
+          withCredentials: true,
+        }
+      )
       .pipe(tap(() => this.router.navigate(['/login'])));
   }
 }
