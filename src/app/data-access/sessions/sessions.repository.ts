@@ -2,12 +2,11 @@ import { HttpClient } from '@angular/common/http';
 import { inject, Injectable } from '@angular/core';
 import { Router } from '@angular/router';
 import { Observable, tap } from 'rxjs';
+import { BaseRepositoryDirective } from '../_base/directives/base-repository.directive';
 
 @Injectable({ providedIn: 'root' })
-export class SessionsRepository {
-  private readonly http = inject(HttpClient);
+export class SessionsRepository extends BaseRepositoryDirective {
   private readonly router = inject(Router);
-  private readonly apiUrl = 'https://empathetic-youth-production.up.railway.app/api';
 
   public isLoggedIn(): Observable<boolean> {
     return this.http.get<boolean>(`${this.apiUrl}/sessions/is-logged-in`, {
