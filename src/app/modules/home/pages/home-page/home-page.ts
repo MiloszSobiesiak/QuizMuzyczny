@@ -30,7 +30,7 @@ export class HomePage {
     };
     this.gamesRepository.createGame(cmd).subscribe((x) => {
       this.gamesHubService.startConnection();
-      this.gameId.set(x);
+      this.gameId.set(x.gameId);
       console.log(x);
     });
   }
