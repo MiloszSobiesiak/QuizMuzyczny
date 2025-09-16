@@ -7,7 +7,7 @@ export class GamesHubService {
 
   public startConnection(): void {
     this.hubConnection = new HubConnectionBuilder()
-      .withUrl('https://empathetic-youth-production.up.railway.app/hubs/game', {
+      .withUrl('https://empathetic-youth-production.up.railway.app/hubs/games', {
         withCredentials: true,
         transport: HttpTransportType.WebSockets,
       })
